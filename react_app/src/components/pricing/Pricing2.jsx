@@ -3,7 +3,7 @@ import Back from "../common/back/Back";
 import axios from 'axios';
 import "./price.css";
 import Faq from "./Faq";
-import Header from "../Header1";
+import Header from '../common/header/Header';
 
 const Pricing = () => {
   const [universityMentors, setUniversityMentors] = useState([]);
@@ -16,7 +16,7 @@ const Pricing = () => {
   const fetchUniversityMentors = async () => {
     try {
       // Fetch mentor data from backend
-      const response = await axios.get('http://localhost:5000/helping/getData');
+      const response = await axios.get('http://localhost:4000/helping/getData');
       // Filter mentors with expertise "Stanford University"
       const universityMentors = response.data.filter(mentor => mentor.expertise === "TOEFL");
       setUniversityMentors(universityMentors);

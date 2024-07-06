@@ -4,7 +4,7 @@ import axios from 'axios';
 import "./team.css";
 import Awrapper from "../about/Awrapper";
 import "../about/about.css";
-import Header from "../Header1";
+import Header from '../common/header/Header';
 
 const Team = () => {
   const [universityMentors, setUniversityMentors] = useState([]);
@@ -17,7 +17,7 @@ const Team = () => {
   const fetchUniversityMentors = async () => {
     try {
       // Fetch mentor data from backend
-      const response = await axios.get('http://localhost:5000/helping/getData');
+      const response = await axios.get('http://localhost:4000/helping/getData');
       // Filter mentors with expertise "Stanford University"
       const universityMentors = response.data.filter(mentor => mentor.expertise === "Stanford University");
       setUniversityMentors(universityMentors);
